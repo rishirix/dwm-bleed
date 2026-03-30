@@ -7,13 +7,13 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=8" };
-static const char dmenufont[]       = "monospace:size=8";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
+static const char *fonts[]          = { "sans-serif:style=Bold:size=8" };
+static const char dmenufont[]       = "sans-serif:style=Bold:size=8";
+static const char col_gray1[]       = "#161616";
+static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#9d815a";
+static const char col_cyan[]        = "#21437f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -68,7 +68,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *brightnessup[] = {"xbacklight.sh","up", NULL};
 static const char *brightnessdown[] = {"xbacklight.sh","down",NULL};
@@ -91,6 +91,7 @@ static const Key keys[] = {
 	{0,				                XF86XK_AudioNext, 	  spawn, {.v = next}},
 	{0,				                XF86XK_AudioPrev,	  spawn, {.v = prev}},
 	{ ALTMOD,                       XK_b,      spawn,          SHCMD("zen-browser")},
+	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("chromium")},
     	{ ALTMOD,                       XK_e,      spawn,          SHCMD("pcmanfm")},
     	{ ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
     	{ ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend")},
