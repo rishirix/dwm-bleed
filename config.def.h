@@ -3,21 +3,21 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
-static const unsigned int snap      = 10;       /* snap pixel */
+static const unsigned int gappx     = 4;        /* gaps between windows */
+static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:style=Bold:size=8" };
-static const char dmenufont[]       = "sans-serif:style=Bold:size=8";
+static const char *fonts[]          = { "sans-serif:style=Bold:size=7" };
+static const char dmenufont[]       = "sans-serif:style=Bold:size=7";
 static const char col_gray1[]       = "#161616";
 static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#21437f";
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#605178";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_gray1,  col_cyan  },
 };
 
 /* tagging */
@@ -96,6 +96,7 @@ static const Key keys[] = {
     	{ ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
     	{ ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend")},
 	{ ALTMOD,                       XK_s,      spawn,          SHCMD("flameshot gui")},
+	{ ALTMOD|ShiftMask,             XK_v,      spawn,          SHCMD("clipmenu")},
 	{ MODKEY|ShiftMask,             XK_apostrophe,  swapmon,   {0} },
 	{ MODKEY|ShiftMask,             XK_slash,  swapwindow,     {0} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
