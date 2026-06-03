@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 2;        /* gaps between windows */
+static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -68,33 +68,33 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,"-g","2","-l","8", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *brightnessup[] = {"xbacklight.sh","up", NULL};
-static const char *brightnessdown[] = {"xbacklight.sh","down",NULL};
+static const char *brightnessup[] = {"xbacklight","-inc","10", NULL};
+static const char *brightnessdown[] = {"xbacklight","-dec","10",NULL};
 static const char *mutemic[] = {"wpctl","set-mute","@DEFAULT_SOURCE@","toggle",NULL};
-static const char *play[] = {"media.sh","play-pause",NULL};
+static const char *play[] = {"playerctl","play-pause",NULL};
 static const char *stop[] = {"playerctl","stop",NULL};
-static const char *next[] = {"media.sh","next",NULL};
-static const char *prev[] = {"media.sh","previous",NULL};
+static const char *next[] = {"playerctl","next",NULL};
+static const char *prev[] = {"playerctl","previous",NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{0,                             XF86XK_MonBrightnessUp, spawn, {.v = brightnessup}},
 	{0,                             XF86XK_MonBrightnessDown,  spawn, {.v = brightnessdown}},
-	{0,                             XF86XK_AudioRaiseVolume,  spawn, SHCMD("volume.sh up && pkill -RTMIN+10 dwmblocks")},
-	{0,                             XF86XK_AudioLowerVolume,  spawn, SHCMD("volume.sh down && pkill -RTMIN+10 dwmblocks")},
-	{0,				                XF86XK_AudioMute,	  spawn, SHCMD("volume.sh mute && pkill -RTMIN+10 dwmblocks")},
+	{0,                             XF86XK_AudioRaiseVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%+ && pkill -RTMIN+10 dwmblocks")},
+	{0,                             XF86XK_AudioLowerVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%- && pkill -RTMIN+10 dwmblocks")},
+	{0,				                XF86XK_AudioMute,	  spawn, SHCMD("wpctl set-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 dwmblocks")},
 	{0,				                XF86XK_AudioMicMute,  spawn, {.v = mutemic}},
 	{0, 				            XF86XK_AudioPlay,	  spawn, {.v = play}},
 	{0,				                XF86XK_AudioStop,	  spawn, {.v = stop}},
 	{0,				                XF86XK_AudioNext, 	  spawn, {.v = next}},
 	{0,				                XF86XK_AudioPrev,	  spawn, {.v = prev}},
-	{ ALTMOD,                       XK_b,      spawn,          SHCMD("zen-browser")},
+	{ ALTMOD,                       XK_b,      spawn,          SHCMD("brave")},
 	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("chromium")},
-    	{ ALTMOD,                       XK_e,      spawn,          SHCMD("pcmanfm")},
-    	{ ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
-    	{ ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend")},
+    { ALTMOD,                       XK_e,      spawn,          SHCMD("thunar")},
+    { ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
+    { ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("loginctl suspend")},
 	{ ALTMOD,                       XK_s,      spawn,          SHCMD("flameshot gui")},
 	{ ALTMOD|ShiftMask,             XK_v,      spawn,          SHCMD("clipmenu")},
 	{ MODKEY|ShiftMask,             XK_apostrophe,  swapmon,   {0} },

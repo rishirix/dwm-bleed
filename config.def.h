@@ -68,7 +68,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,"-g","2","-l","8", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *brightnessup[] = {"xbacklight","-inc","10", NULL};
 static const char *brightnessdown[] = {"xbacklight","-dec","10",NULL};
@@ -90,7 +90,7 @@ static const Key keys[] = {
 	{0,				                XF86XK_AudioStop,	  spawn, {.v = stop}},
 	{0,				                XF86XK_AudioNext, 	  spawn, {.v = next}},
 	{0,				                XF86XK_AudioPrev,	  spawn, {.v = prev}},
-	{ ALTMOD,                       XK_b,      spawn,          SHCMD("zen-browser")},
+	{ ALTMOD,                       XK_b,      spawn,          SHCMD("brave")},
 	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("chromium")},
     { ALTMOD,                       XK_e,      spawn,          SHCMD("thunar")},
     { ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
