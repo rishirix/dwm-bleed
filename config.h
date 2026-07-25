@@ -3,21 +3,21 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gaps between windows */
-static const unsigned int snap      = 5;       /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
+static const unsigned int gappx     = 4;        /* gaps between windows */
+static const unsigned int snap      = 10;       /* snap pixel */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:size=9" };
-static const char dmenufont[]       = "sans-serif:size=9";
+static const char *fonts[]          = { "sans-serif:style=Medium:size=11" };
+static const char dmenufont[]       = "sans-serif:style=Medium:size=11";
 static const char col_gray1[]       = "#161616";
 static const char col_gray2[]       = "#222222";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#787878";
 static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#3b8fa3";
+static const char col_cyan[]        = "#151d22";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_gray1,  col_cyan  },
 };
 
 /* tagging */
@@ -90,7 +90,7 @@ static const Key keys[] = {
 	{0,				                XF86XK_AudioStop,	  spawn, {.v = stop}},
 	{0,				                XF86XK_AudioNext, 	  spawn, {.v = next}},
 	{0,				                XF86XK_AudioPrev,	  spawn, {.v = prev}},
-	{ ALTMOD,                       XK_b,      spawn,          SHCMD("brave")},
+	{ ALTMOD,                       XK_b,      spawn,          SHCMD("firefox")},
 	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("chromium")},
     { ALTMOD,                       XK_e,      spawn,          SHCMD("thunar")},
     { ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
