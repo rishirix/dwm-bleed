@@ -7,7 +7,7 @@ static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:style=Medium:size=10" };
+static const char *fonts[]          = { "sans-serif:style=Medium:size=10","Symbols Nerd Font:size=10" };
 static const char dmenufont[]       = "sans-serif:style=Medium:size=10";
 static const char col_bg[]        = "#2e282a";  /* background / normal bg */
 static const char col_bg_alt[]    = "#3a3335";  /* slightly lighter bg, borders */
