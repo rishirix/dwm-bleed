@@ -9,15 +9,17 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "sans-serif:style=Medium:size=10" };
 static const char dmenufont[]       = "sans-serif:style=Medium:size=10";
-static const char col_gray1[]       = "#161616";
-static const char col_gray2[]       = "#222222";
-static const char col_gray3[]       = "#787878";
-static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#151d22";
+static const char col_bg[]        = "#2e282a";  /* background / normal bg */
+static const char col_bg_alt[]    = "#3a3335";  /* slightly lighter bg, borders */
+static const char col_fg[]        = "#f5e4e1";  /* foreground / selected text */
+static const char col_fg_dim[]    = "#d9c7c4";  /* normal (unfocused) text */
+static const char col_accent[]    = "#17bebb";  /* teal accent, selected border/bg */
+static const char col_urgent[]    = "#cd5334";  /* terracotta, urgent windows */
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray1,  col_cyan  },
+	/*               fg          bg          border   */
+	[SchemeNorm] = { col_fg_dim, col_bg,     col_bg_alt },
+	[SchemeSel]  = { col_fg,     col_bg_alt, col_accent },
 };
 
 /* tagging */
@@ -68,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,"-g","1","-l","10", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg_dim, "-sb", col_bg_alt, "-sf", col_fg,"-g","1","-l","10", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brightnessup[] = {"xbacklight","-inc","10", NULL};
 static const char *brightnessdown[] = {"xbacklight","-dec","10",NULL};
