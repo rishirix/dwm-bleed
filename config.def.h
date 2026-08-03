@@ -2,19 +2,19 @@
 #include "movestack.c"
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 4;        /* gaps between windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 16;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:style=Medium:size=10","Symbols Nerd Font:size=10" };
-static const char dmenufont[]       = "sans-serif:style=Medium:size=10";
-static const char col_bg[]        = "#2e282a";  /* background / normal bg */
-static const char col_bg_alt[]    = "#3a3335";  /* slightly lighter bg, borders */
-static const char col_fg[]        = "#f5e4e1";  /* foreground / selected text */
-static const char col_fg_dim[]    = "#d9c7c4";  /* normal (unfocused) text */
-static const char col_accent[]    = "#17bebb";  /* teal accent, selected border/bg */
-static const char col_urgent[]    = "#cd5334";  /* terracotta, urgent windows */
+static const char *fonts[]          = { "sans-serif:style=Medium:size=9","Symbols Nerd Font:size=9" };
+static const char dmenufont[]       = "sans-serif:style=Medium:size=9";
+static const char col_bg[]        = "#2e3440";  /* background / normal bg */
+static const char col_bg_alt[]    = "#4c566a";  /* slightly lighter bg, borders */
+static const char col_fg[]        = "#d8dee9";  /* foreground / selected text */
+static const char col_fg_dim[]    = "#a5abb6";  /* normal (unfocused) text */
+static const char col_accent[]    = "#88c0d0";  /* teal accent, selected border/bg */
+static const char col_urgent[]    = "#b48ead";  /* terracotta, urgent windows */
 
 static const char *colors[][3]      = {
 	/*               fg          bg          border   */
