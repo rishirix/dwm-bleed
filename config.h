@@ -7,8 +7,8 @@ static const unsigned int gappx     = 16;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:style=Medium:size=9","Symbols Nerd Font:size=9" };
-static const char dmenufont[]       = "sans-serif:style=Medium:size=9";
+static const char *fonts[]          = { "sans-serif:style=Medium:size=11","Symbols Nerd Font:size=11" };
+static const char dmenufont[]       = "sans-serif:style=Medium:size=11";
 static const char col_bg[]        = "#2e3440";  /* background / normal bg */
 static const char col_bg_alt[]    = "#4c566a";  /* slightly lighter bg, borders */
 static const char col_fg[]        = "#d8dee9";  /* foreground / selected text */
