@@ -2,25 +2,15 @@
 #include "movestack.c"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 16;        /* gaps between windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:style=Medium:size=11","Symbols Nerd Font:size=11" };
-static const char dmenufont[]       = "sans-serif:style=Medium:size=11";
-static const char col_bg[]        = "#2e3440";  /* background / normal bg */
-static const char col_bg_alt[]    = "#4c566a";  /* slightly lighter bg, borders */
-static const char col_fg[]        = "#d8dee9";  /* foreground / selected text */
-static const char col_fg_dim[]    = "#a5abb6";  /* normal (unfocused) text */
-static const char col_accent[]    = "#88c0d0";  /* teal accent, selected border/bg */
-static const char col_urgent[]    = "#b48ead";  /* terracotta, urgent windows */
+static const char *fonts[]          = { "Inter Display:style=Medium:size=10","Symbols Nerd Font:size=10" };
+static const char dmenufont[]       = "sans-serif:size=11";
 
-static const char *colors[][3]      = {
-	/*               fg          bg          border   */
-	[SchemeNorm] = { col_fg_dim, col_bg,     col_bg_alt },
-	[SchemeSel]  = { col_fg,     col_bg_alt, col_accent },
-};
+#include "colors.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5"};
@@ -46,11 +36,11 @@ static const int refreshrate = 60;  /* refresh rate (per second) for client move
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",      tile },    /* first entry is default */
-	{ "[F]",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ "<M>",      centeredfloatingmaster },
+	{ "| TILE |",      tile },    /* first entry is default */
+	{ "| FLOAT |",      NULL },    /* no layout function means floating behavior */
+	{ "| MONO |",      monocle },
+	{ "| CENTM |",      centeredmaster },
+	{ "| CENTFM |",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -92,13 +82,13 @@ static const Key keys[] = {
 	{0,				                XF86XK_AudioStop,	  spawn, {.v = stop}},
 	{0,				                XF86XK_AudioNext, 	  spawn, {.v = next}},
 	{0,				                XF86XK_AudioPrev,	  spawn, {.v = prev}},
-	{ ALTMOD,                       XK_b,      spawn,          SHCMD("firefox")},
-	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("chromium")},
+	{ ALTMOD,                       XK_b,      spawn,          SHCMD("helium")},
+	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("book_menu.sh")},
     { ALTMOD,                       XK_e,      spawn,          SHCMD("thunar")},
     { ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
     { ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("loginctl suspend")},
-	{ ALTMOD,                       XK_s,      spawn,          SHCMD("flameshot gui")},
-	{ ALTMOD|ShiftMask,             XK_v,      spawn,          SHCMD("clipmenu")},
+	{ ALTMOD,                       XK_s,      spawn,          SHCMD("screenshot.sh")},
+	{ ALTMOD|ShiftMask,             XK_w,      spawn,          SHCMD("wallpaper.sh")},
 	{ MODKEY|ShiftMask,             XK_apostrophe,  swapmon,   {0} },
 	{ MODKEY|ShiftMask,             XK_slash,  swapwindow,     {0} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
