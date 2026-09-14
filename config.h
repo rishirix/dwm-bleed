@@ -3,11 +3,11 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gaps between windows */
-static const unsigned int snap      = 10;       /* snap pixel */
+static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int snap      = 8;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Inter Display:style=Medium:size=10","Symbols Nerd Font:size=10" };
+static const char *fonts[]          = { "sans-serif:size=10","Symbols Nerd Font:size=10" };
 static const char dmenufont[]       = "sans-serif:size=11";
 
 #include "colors.h"
@@ -27,7 +27,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int decorhints  = 1;    /* 1 means respect decoration hints */
@@ -36,11 +36,11 @@ static const int refreshrate = 60;  /* refresh rate (per second) for client move
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "| TILE |",      tile },    /* first entry is default */
-	{ "| FLOAT |",      NULL },    /* no layout function means floating behavior */
-	{ "| MONO |",      monocle },
-	{ "| CENTM |",      centeredmaster },
-	{ "| CENTFM |",      centeredfloatingmaster },
+	{ "<T>",      tile },    /* first entry is default */
+	{ "<F>",      NULL },    /* no layout function means floating behavior */
+	{ "()",      monocle },
+	{ "<M>",      centeredmaster },
+	{ "<FM>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -86,8 +86,8 @@ static const Key keys[] = {
 	{ ALTMOD|ShiftMask,             XK_b,      spawn,          SHCMD("book_menu.sh")},
     { ALTMOD,                       XK_e,      spawn,          SHCMD("thunar")},
     { ALTMOD,                       XK_r,      spawn,          SHCMD("autorandr -c")},
-    { ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("loginctl suspend")},
-	{ ALTMOD,                       XK_s,      spawn,          SHCMD("screenshot.sh")},
+    { ALTMOD|ShiftMask,             XK_s,      spawn,          SHCMD("screenshot.sh")},
+	{ ALTMOD,                       XK_s,      spawn,          SHCMD("loginctl suspend")},
 	{ ALTMOD|ShiftMask,             XK_w,      spawn,          SHCMD("wallpaper.sh")},
 	{ MODKEY|ShiftMask,             XK_apostrophe,  swapmon,   {0} },
 	{ MODKEY|ShiftMask,             XK_slash,  swapwindow,     {0} },
