@@ -7,8 +7,8 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 8;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:size=10","Symbols Nerd Font:size=10" };
-static const char dmenufont[]       = "sans-serif:size=11";
+static const char *fonts[]          = { "sans-serif:size=9","Symbols Nerd Font:size=9" };
+static const char dmenufont[]       = "sans-serif:size=9";
 
 #include "colors.h"
 

@@ -1,8 +1,8 @@
-static const char col_bg[]     = "#0A1A1A";
-static const char col_bg_alt[] = "#70726E";
-static const char col_fg[]     = "#0A1A1A";
-static const char col_fg_dim[] = "#dbd3ce";
-static const char col_accent[] = "#5F635E";
+static const char col_bg[]     = "#000002";
+static const char col_bg_alt[] = "#E10C22";
+static const char col_fg[]     = "#f4d8b2";
+static const char col_fg_dim[] = "#f4d8b2";
+static const char col_accent[] = "#D30C23";
 
 static const char *colors[][3] = {
     /*               fg          bg          border     */
